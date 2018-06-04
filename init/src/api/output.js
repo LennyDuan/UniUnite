@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import { log, debug } from '../util/logger';
 
 export
