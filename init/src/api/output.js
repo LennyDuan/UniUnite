@@ -1,8 +1,8 @@
-import 'babel-polyfill'
-import { log, debug } from '../util/logger';
+import 'babel-polyfill';
+import { debug } from '../util/logger';
 
 export
-const logOutput = async (payload, context, callback, {} = {}) => {
+const logOutput = async (payload, context, callback) => {
   debug(payload);
   debug(context);
   debug(callback);
