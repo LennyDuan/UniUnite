@@ -1,7 +1,4 @@
-// change import/export to require/module.exports could solve the priblem
-// try tmr
-import 'babel-polyfill';
-import { debug } from '../util/logger';
+const debug = require('../util/logger').debug
 
 export
 const logOutput = async (payload, context, callback) => {
