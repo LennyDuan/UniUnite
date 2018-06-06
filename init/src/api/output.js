@@ -1,3 +1,4 @@
+require('babel-polyfill')
 const debug = require('../util/logger').debug
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
