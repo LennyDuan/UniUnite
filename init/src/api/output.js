@@ -9,6 +9,6 @@ const logOutput = async (payload, context, callback) => {
    }
    console.log('Read DDB');
    const data = await docClient.scan(scanningParameters).promise();
-   
-   callback(null,data)
+
+   callback(null, data)
 };
