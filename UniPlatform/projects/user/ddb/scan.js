@@ -1,1 +1,15 @@
-const config = require('config').
+const config = require('config').config
+const docClient = require('config').docClient
+
+export
+const scan = ({ tableName }) => {
+  const scanningParameters = {
+       TableName: tableName
+   }
+   console.log('Read DDB table: ' + tableName);
+   console.log('#############');
+   const data = await docClient.scan(scanningParameters).promise();
+   console.log(JSON.stringify(data));
+   console.log('#############');
+   return data
+};
