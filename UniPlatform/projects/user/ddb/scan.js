@@ -9,5 +9,5 @@ exports.scan = async ({ tableName }) => {
   const data = await docClient.scan(scanningParameters).promise();
   console.log(JSON.stringify(data));
   console.log('#############');
-  return data;
+  return data.Items;
 };
