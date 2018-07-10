@@ -1,12 +1,12 @@
-const config = require('config').config;
+const config = require('./config').config;
 
 const tableName = config.tableName;
-const scan = require('../ddb/scan').scan;
+const scanDDB = require('../ddb/scan').scan;
 
 
-exports.handler = (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
   try {
-    const data = scan({ tableName });
+    const data = await scanDDB({ tableName });
     callback(null, data);
   } catch (error) {
     callback(error);
