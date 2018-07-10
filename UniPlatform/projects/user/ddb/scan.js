@@ -1,8 +1,7 @@
 const config = require('config').config
 const docClient = require('config').docClient
 
-export
-const scan = ({ tableName }) => {
+exports.scan = async ({ tableName }) => {
   const scanningParameters = {
        TableName: tableName
    }

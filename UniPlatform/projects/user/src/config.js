@@ -1,7 +1,7 @@
 const config = {
-  tableName: 'user.users'
-}
+  tableName: 'user.users',
+};
 
 module.exports = {
-  config
+  config,
 };
