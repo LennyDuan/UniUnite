@@ -1,10 +1,6 @@
 const docClient = require('./config').docClient;
 
 exports.queryOne = async ({ tableName, name, value }) => {
-  const scanningParameters = {
-    TableName: tableName,
-  };
-
   const queryParameters = {
     KeyConditionExpression: '#qn = :qv',
     ExpressionAttributeNames: {
