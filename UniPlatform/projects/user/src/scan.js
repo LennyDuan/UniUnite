@@ -1,14 +1,15 @@
 const config = require('./config').config;
 
 const tableName = config.tableName;
-const scanDDB = require('../ddb/scan').scan;
+const scanAll = require('../ddb/scan').scanAll;
 
 
-exports.handler = async (event, context, callback) => {
+exports.scanAll = async (event, context, callback) => {
   try {
-    const data = await scanDDB({ tableName });
+    const data = await scanAll({ tableName });
     callback(null, data);
   } catch (error) {
+    console.log(error)
     callback(error);
   }
 };
