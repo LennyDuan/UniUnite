@@ -6,15 +6,15 @@ exports.queryOne = async ({ tableName, name, value }) => {
   };
 
   const queryParameters = {
-    KeyConditionExpression: '#hkn = :qv',
+    KeyConditionExpression: '#qn = :qv',
     ExpressionAttributeNames: {
-    "#hkn": name,
+      '#qn': name,
     },
     ExpressionAttributeValues: {
-    ":qv": value,
+      ':qv': value,
     },
     TableName: tableName,
-  }
+  };
 
   console.log(`Query DDB table: ${tableName}`);
   console.log('#############');

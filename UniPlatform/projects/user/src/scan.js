@@ -9,7 +9,7 @@ exports.scanAll = async (event, context, callback) => {
     const data = await scanAll({ tableName });
     callback(null, data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     callback(error);
   }
 };
