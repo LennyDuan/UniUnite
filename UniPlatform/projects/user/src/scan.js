@@ -6,7 +6,7 @@ const scanAll = require('../ddb/scan').scanAll;
 
 exports.scanAll = async (event, context, callback) => {
   try {
-    const data = await scanAll({ tableName });
+    const data = await scanAll(tableName);
     callback(null, data);
   } catch (error) {
     console.log(error);
