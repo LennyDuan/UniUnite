@@ -1,6 +1,6 @@
 const docClient = require('./config').docClient;
 
-exports.scanAll = async ({ tableName }) => {
+exports.scanAll = async (tableName) => {
   const scanningParameters = {
     TableName: tableName,
   };
