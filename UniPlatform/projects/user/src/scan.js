@@ -2,6 +2,7 @@ const config = require('./config').config;
 
 const tableName = config.tableName;
 const scanAll = require('../ddb/scan').scanAll;
+const scanOne = require('../ddb/scan').scanOne;
 
 
 exports.scanAll = async (event, context, callback) => {
