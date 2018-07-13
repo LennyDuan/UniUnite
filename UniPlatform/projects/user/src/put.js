@@ -1,7 +1,7 @@
 const config = require('./config').config;
 
 const tableName = config.tableName;
-const putItem = require('../ddb/scan').put;
+const putItem = require('../ddb/put').put;
 
 exports.put = async (event, context, callback) => {
   try {
