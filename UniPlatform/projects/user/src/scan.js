@@ -13,3 +13,15 @@ exports.scanAll = async (event, context, callback) => {
     callback(error);
   }
 };
+
+exports.scanOne = async (event, context, callback) => {
+  try {
+    const name = event.queryStringParameters.name;
+    const value = event.queryStringParameters.value;
+    const data = await scanOne(tableName, name, value);
+    callback(null, data);
+  } catch (error) {
+    console.log(error);
+    callback(error);
+  }
+};
