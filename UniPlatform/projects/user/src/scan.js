@@ -16,6 +16,7 @@ exports.scanAll = async (event, context, callback) => {
 
 exports.scanOne = async (event, context, callback) => {
   try {
+    // Make sure the event have correct format
     const name = event.queryStringParameters.name;
     const value = event.queryStringParameters.value;
     const data = await scanOne(tableName, name, value);
