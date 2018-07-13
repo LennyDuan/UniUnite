@@ -7,6 +7,7 @@ const queryOne = require('../ddb/query').queryOne;
 
 exports.queryOne = async (event, context, callback) => {
   try {
+    // Make sure the event have correct format
     const value = event.queryStringParameters.value;
     const name = indexName;
     const data = await queryOne(tableName, name, value);
