@@ -9,7 +9,7 @@ exports.queryOne = async (event, context, callback) => {
   try {
     const value = event.queryStringParameters.value;
     const name = indexName;
-    const data = await queryOne({ tableName, name, value });
+    const data = await queryOne(tableName, name, value);
     callback(null, data);
   } catch (error) {
     callback(error);
