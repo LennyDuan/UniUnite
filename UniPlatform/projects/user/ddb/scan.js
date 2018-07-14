@@ -30,3 +30,24 @@ exports.scanOne = async (tableName, name, value) => {
   console.log('#############');
   return data.Items;
 };
+
+exports.scanUser = async (tableName, account, password) => {
+  const scanningParameters = {
+    TableName: tableName,
+    ExpressionAttributeNames: {
+      '#an': 'account',
+      '#pn': 'password',
+    },
+    ExpressionAttributeValues: {
+      ':av': account,
+      ':pv': password,
+    },
+    FilterExpression: '#an = :av AND #av = :pv',
+  };
+  console.log(`Scan User in DDB table: ${tableName} for ${account} - ${password}`);
+  console.log('#############');
+  const data = await docClient.scan(scanningParameters).promise();
+  console.log(JSON.stringify(data));
+  console.log('#############');
+  return data.Items;
+};
