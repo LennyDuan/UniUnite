@@ -5,7 +5,7 @@ exports.put = async (tableName, item) => {
     Item: item,
     TableName: tableName,
   };
-  console.log(`Put item ${JSON.stringify(item)}  to DDB table: ${tableName}`);
+  console.log(`Put user info item ${JSON.stringify(item)}  to DDB table: ${tableName}`);
   console.log('#############');
   await docClient.put(putParameters).promise();
   console.log('#############');
