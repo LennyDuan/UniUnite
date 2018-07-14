@@ -5,6 +5,7 @@ const indexName = config.indexName;
 const queryOne = require('../ddb/query').queryOne;
 
 
+// No need to use query, use get is better
 exports.queryOne = async (event, context, callback) => {
   try {
     // Make sure the event have correct format
