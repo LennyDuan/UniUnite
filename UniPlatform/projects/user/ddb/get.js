@@ -7,7 +7,7 @@ exports.get = async (tableName, key) => {
       'account': key,
     },
   };
-  console.log(`Get user ${key}  to DDB table: ${tableName}`);
+  console.log(`Get user ${key} from DDB table: ${tableName}`);
   console.log('#############');
   const data = await docClient.get(getParameters).promise();
   console.log('#############');
