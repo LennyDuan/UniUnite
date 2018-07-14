@@ -1,7 +1,7 @@
 const config = require('./config').config;
 
 const tableName = config.tableName;
-const getItem = require('../ddb/put').get;
+const getItem = require('../ddb/get').get;
 
 exports.get = async (event, context, callback) => {
   try {

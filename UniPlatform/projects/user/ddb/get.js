@@ -4,12 +4,12 @@ exports.get = async (tableName, key) => {
   const getParameters = {
     TableName: tableName,
     Key: {
-      account: key,
+      'account': key,
     },
   };
   console.log(`Get user ${key}  to DDB table: ${tableName}`);
   console.log('#############');
   const data = await docClient.get(getParameters).promise();
   console.log('#############');
-  return data.Items[0];
+  return data.Item;
 };
