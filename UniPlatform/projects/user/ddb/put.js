@@ -7,6 +7,6 @@ exports.put = async (tableName, item) => {
   };
   console.log(`Put item ${item}  to DDB table: ${tableName}`);
   console.log('#############');
-  const data = await docClient.put(putParameters).promise();
+  await docClient.put(putParameters).promise();
   console.log('#############');
 };
