@@ -4,7 +4,7 @@ exports.get = async (tableName, key) => {
   const getParameters = {
     TableName: tableName,
     Key: {
-      account: key,
+      'account': key,
     },
   };
   console.log(`Get user info ${key}  from DDB table: ${tableName}`);
