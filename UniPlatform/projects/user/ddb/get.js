@@ -1,12 +1,14 @@
 const docClient = require('./config').docClient;
 
-exports.put = async (tableName, item) => {
-  const putParameters = {
-    Item: item,
+exports.get = async (tableName, key) => {
+  const getParameters = {
     TableName: tableName,
+    Key: {
+      'account': key
+    }
   };
-  console.log(`Put item ${item}  to DDB table: ${tableName}`);
+  console.log(`Get user ${key}  to DDB table: ${tableName}`);
   console.log('#############');
-  const data = await docClient.put(putParameters).promise();
+  const data = await docClient.get(getParameters).promise();
   console.log('#############');
 };
