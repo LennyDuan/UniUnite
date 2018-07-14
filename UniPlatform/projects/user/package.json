@@ -1,7 +1,7 @@
 {
   "name": "User",
   "version": "1.0.0",
-  "description": "User Info",
+  "description": "User Account",
   "scripts": {
     "build": "babel src --out-dir build --source-maps --copy-files",
     "test": "eslint test --fix; mocha ./test --require babel-register --require babel-polyfill --recursive",
