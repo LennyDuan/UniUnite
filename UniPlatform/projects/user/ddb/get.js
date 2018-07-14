@@ -11,4 +11,5 @@ exports.get = async (tableName, key) => {
   console.log('#############');
   const data = await docClient.get(getParameters).promise();
   console.log('#############');
+  return data.Items[0];
 };
