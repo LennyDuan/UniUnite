@@ -1,6 +1,6 @@
 const config = {
   tableName: 'user.info',
-  indexName: 'account',
+  tableKey: 'account',
 };
 
 module.exports = {
