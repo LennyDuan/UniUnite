@@ -42,7 +42,7 @@ exports.scanUser = async (tableName, account, password) => {
       ':av': account,
       ':pv': password,
     },
-    FilterExpression: '#an = :av AND #av = :pv',
+    FilterExpression: '#an = :av AND #pn = :pv',
   };
   console.log(`Scan User in DDB table: ${tableName} for ${account} - ${password}`);
   console.log('#############');
