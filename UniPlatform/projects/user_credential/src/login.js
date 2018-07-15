@@ -30,7 +30,7 @@ exports.login = async (event, context, callback) => {
       };
       console.log(`New credential: ${JSON.stringify(item)}`);
       await createCredential(credentialTableName, item);
-      callback(null, 'Create/Update successful');
+      callback(null, item);
     }
   } catch (error) {
     console.log(error);
