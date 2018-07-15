@@ -20,7 +20,7 @@ exports.verify = async (event, context, callback) => {
       throw new Error(`Invalid account or password: ${account} - ${credential}`);
     }
 
-    const currentDate = moment().format(dateFormat);
+    const currentDate = moment()
     const expiredDate = moment(userCredential.date_expired, dateFormat);
     console.log(`Current date [${currentDate}] - Expired date [${expiredDate}]`);
     if (currentDate.isAfter(expiredDate)) {
