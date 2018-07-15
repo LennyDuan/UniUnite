@@ -32,7 +32,6 @@ exports.login = async (event, context, callback) => {
       await createCredential(credentialTableName, item);
       callback(null, 'Create/Update successful');
     }
-    throw new Error('Unexpected Error');
   } catch (error) {
     console.log(error);
     callback(error);
