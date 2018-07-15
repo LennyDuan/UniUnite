@@ -3,6 +3,8 @@ const moment = require('moment');
 const config = require('./config').config;
 const userTableName = config.userTableName;
 const credentialTableName = config.credentialTableName;
+const dateFormat = config.dateFormat;
+const expiredTime = config.expiredTime;
 const getUser = require('../ddb/get').get;
 const createCredential = require('../ddb/put').put;
 
@@ -22,8 +24,12 @@ exports.login = async (event, context, callback) => {
       const item = {
         account,
         credential,
-        
+        date_started: moment().format(dateFormat),
+        date_expired: moment().add('days', expiredTime).format(dateFormat),
       }
+      console.log(`New credential: ${item}`);
+      await createCredential(credentialTableName, item);
+      callback(null, 'Create/Update credential successful');
     }
     throw error(`Unexpected Error`)
   } catch (error) {
