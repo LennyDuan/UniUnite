@@ -28,7 +28,7 @@ exports.login = async (event, context, callback) => {
         date_started: moment().format(dateFormat),
         date_expired: moment().add('days', expiredTime).format(dateFormat),
       };
-      console.log(`New credential: ${item}`);
+      console.log(`New credential: ${JSON.stringify(item)}`);
       await createCredential(credentialTableName, item);
       callback(null, 'Create/Update successful');
     }
