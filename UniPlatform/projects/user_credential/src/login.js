@@ -1,6 +1,7 @@
 const md5 = require('md5');
 const moment = require('moment');
 const config = require('./config').config;
+
 const userTableName = config.userTableName;
 const credentialTableName = config.credentialTableName;
 const dateFormat = config.dateFormat;
@@ -12,13 +13,13 @@ exports.login = async (event, context, callback) => {
   try {
     const account = event.queryStringParameters.account;
     const credential = event.queryStringParameters.credential;
-    const user = await getUser(tableName, account);
+    const user = await getUser(userTableName, account);
     console.log(`Get user: ${JSON.stringify(user)}`);
-    const password = user.password
+    const password = user.password;
     const correctCredential = md5(password);
     console.log(`Correct credential for this user: ${correctCredential}`);
     if (correctCredential !== credential) {
-        throw error(`Invalid account or password: ${account} - ${credential}`)
+      throw new Error(`Invalid account or password: ${account} - ${credential}`);
     } else {
       console.log(`Verified user: ${account} - ${correctCredential}`);
       const item = {
@@ -26,12 +27,12 @@ exports.login = async (event, context, callback) => {
         credential,
         date_started: moment().format(dateFormat),
         date_expired: moment().add('days', expiredTime).format(dateFormat),
-      }
+      };
       console.log(`New credential: ${item}`);
       await createCredential(credentialTableName, item);
-      callback(null, 'Create/Update credential successful');
+      callback(null, 'Create/Update successful');
     }
-    throw error(`Unexpected Error`)
+    throw new Error('Unexpected Error');
   } catch (error) {
     console.log(error);
     callback(error);
