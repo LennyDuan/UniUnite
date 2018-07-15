@@ -1,5 +1,6 @@
 const config = {
-  tableName: 'user.info',
+  userTableName: 'user.users',
+  credentialTableName: 'user.credential',
   tableKey: 'account',
 };
 
