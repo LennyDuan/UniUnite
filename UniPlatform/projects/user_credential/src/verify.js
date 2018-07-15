@@ -5,6 +5,7 @@ const getCredential = require('../ddb/get').get;
 const credentialTableName = config.credentialTableName;
 const dateFormat = config.dateFormat;
 
+// Internal Lambda
 exports.verify = async (event, context, callback) => {
   try {
     const account = event.queryStringParameters.account;
