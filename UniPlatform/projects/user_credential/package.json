@@ -1,7 +1,7 @@
 {
-  "name": "User Info",
+  "name": "User Credential",
   "version": "1.0.0",
-  "description": "User Info",
+  "description": "User Credential",
   "scripts": {
     "build": "babel src --out-dir build --source-maps --copy-files",
     "test": "eslint test --fix; mocha ./test --require babel-register --require babel-polyfill --recursive",
@@ -16,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.252.1",
-    "chai": "^4.1.2"
+    "chai": "^4.1.2",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "aws-sdk": "^2.252.1",
