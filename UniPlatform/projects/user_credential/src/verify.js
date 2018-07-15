@@ -9,8 +9,8 @@ exports.verify = async (event, context, callback) => {
   try {
     const account = event.queryStringParameters.account;
     const credential = event.queryStringParameters.credential;
-    const userCredential = await getCredential(userTableName, account);
-    if(!userCredential) {
+    const userCredential = await getCredential(credentialTableName, account);
+    if (!userCredential) {
       throw new Error(`Invalid account: ${account}`);
     }
     console.log(`Get user credential: ${JSON.stringify(userCredential)}`);
