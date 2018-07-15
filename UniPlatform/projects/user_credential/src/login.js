@@ -9,6 +9,7 @@ const expiredTime = config.expiredTime;
 const getUser = require('../ddb/get').get;
 const createCredential = require('../ddb/put').put;
 
+// External HTTP Call
 exports.login = async (event, context, callback) => {
   try {
     const account = event.body.account;
