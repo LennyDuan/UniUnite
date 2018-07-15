@@ -11,8 +11,8 @@ const createCredential = require('../ddb/put').put;
 
 exports.login = async (event, context, callback) => {
   try {
-    const account = event.queryStringParameters.account;
-    const credential = event.queryStringParameters.credential;
+    const account = event.body.account;
+    const credential = event.body.credential;
     const user = await getUser(userTableName, account);
     console.log(`Get user: ${JSON.stringify(user)}`);
     const password = user.password;
